@@ -193,13 +193,14 @@ type             = "forward"
   }
 
 Lessons Learned:
-count vs for_each: count is convenient for establishing similar resources, whereas for_each is versatile and can support different configurations based on maps or sets.
+Terraform Functions:
+Using functions in Terraform can be beneficial as they help automate processes, simplify your code, and enhance reusability.Think of them as your personal assistants, who perform simple functions such as concatenating strings, retrieving values, or transforming collections of lists to sets. 
 
-Terraform Functions: Functions in Terraform assist in furthering the automation of resource provisioning, making code more readable, reusable, and maintainable.
+Modularization:Modularizing your Terraform code enhances organization and logic flow. 
+It’s like constructing a building using blocks. Once you complete a particular piece(for instance, a VPC or EC2 configuration),you can put that piece anywhere within the building. 
+This comes in handy especially in cases where your infrastructure is large or you are part of a larger team. 
 
-Modularization: The use of modules in Terraform promotes better organization of code, scalability, and reusability. Big infrastructure configurations are more manageable and maintainable.
-
-ALB: The Application Load Balancer module plays a central role in load balancing traffic among several EC2 instances. It is simple to scale and configure according to the dynamic needs of your application.
+ALB: The Application Load Balancer module is the best example of a load balancer for traffic distributed to multiple EC2 instances. It is easy to scale and adjust to the constant changing requirements of your application while being simple to set up and configure.
 
 Repository
 [GitHub Repo Link - https://github.com/jpremchander/PROG8830.git]
