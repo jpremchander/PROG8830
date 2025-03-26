@@ -11,14 +11,18 @@ provider "aws" {
   region = var.aws_region
 }
 
-module "network" {
+module "vpc" {
   source = "./modules/vpc"
 }
 
-module "compute" {
+module "ec2" {
   source = "./modules/ec2"
 }
 
 module "security" {
   source = "./modules/security"
+}
+
+module "alb" {
+source = "./modules/alb"
 }
