@@ -1,17 +1,24 @@
-variable "aws_region" {
-  description = "AWS region"
+variable "cidr_block" {
+  description = "The CIDR block for the VPC"
   type        = string
-  default     = "us-east-1"
 }
 
-variable "vpc_cidr" {
-  description = "VPC CIDR Block"
+variable "subnet_cidr_1a" {
+  description = "The CIDR block for subnet in AZ 1a"
   type        = string
-  default     = "10.0.0.0/16"
 }
 
-variable "subnet_cidr" {
-  description = "Subnet CIDR Block"
+variable "subnet_cidr_1b" {
+  description = "The CIDR block for subnet in AZ 1b"
   type        = string
-  default     = "10.0.1.0/24"
+}
+
+variable "ami_id" {
+  description = "The AMI ID to use for EC2 instance"
+  type        = string
+}
+
+variable "instance_type" {
+  description = "The type of EC2 instance"
+  type        = string
 }
