@@ -1,16 +1,43 @@
-resource "aws_security_group" "web_sg" {
-  for_each = var.security_groups
+# Security Module (modules/security/main.tf)
+resource "aws_security_group" "lb_sg" {
+  vpc_id = var.vpc_id
+  
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
-  name_prefix = each.key
-  vpc_id      = var.vpc_id
+  egress {
+    from_port   = 0
+    to_port     = 65535
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
 
-  dynamic "ingress" {
-    for_each = each.value
-    content {
-      from_port   = ingress.value["from_port"]
-      to_port     = ingress.value["to_port"]
-      protocol    = ingress.value["protocol"]
-      cidr_blocks = ingress.value["cidr_blocks"]
-    }
+resource "aws_security_group" "ec2_sg" {
+  vpc_id = var.vpc_id
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 65535
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }

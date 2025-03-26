@@ -1,2 +1,2 @@
+# Security Variables (modules/security/variables.tf)
 variable "vpc_id" {}
-variable "security_groups" {}
