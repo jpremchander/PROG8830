@@ -12,11 +12,11 @@ provider "aws" {
 }
 
 module "network" {
-  source = "./modules/network"
+  source = "./modules/vpc"
 }
 
 module "compute" {
-  source = "./modules/compute"
+  source = "./modules/ec2"
 }
 
 module "security" {

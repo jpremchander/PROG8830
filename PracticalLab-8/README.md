@@ -23,7 +23,7 @@ This project demonstrates advanced Terraform features such as loops (`count` and
   │   │   ├── main.tf
   │   │   ├── variables.tf
   │   │   ├── outputs.tf
-  │   ├── security-groups/
+  │   ├── security/
   │   │   ├── main.tf
   │   │   ├── variables.tf
   │   │   ├── outputs.tf
