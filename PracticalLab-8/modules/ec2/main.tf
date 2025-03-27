@@ -8,7 +8,7 @@ resource "aws_instance" "practicallab4_ec2_server" {
   user_data = <<-EOF
   #!/bin/bash
   yum install -y httpd
-  echo "Hello from EC2!" > /var/www/html/index.html
+  echo "Hello from Group2!" > /var/www/html/index.html
   systemctl start httpd
   systemctl enable httpd
   EOF
