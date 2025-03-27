@@ -1,7 +1,9 @@
-# Security Module (modules/security/main.tf)
+# Load Balancer Security Group
 resource "aws_security_group" "lb_sg" {
-  vpc_id = var.vpc_id
-  
+  name        = var.lb_sg_name
+  description = "Security group for Load Balancer"
+  vpc_id      = var.vpc_id
+
   ingress {
     from_port   = 80
     to_port     = 80
@@ -17,8 +19,11 @@ resource "aws_security_group" "lb_sg" {
   }
 }
 
+# EC2 Security Group
 resource "aws_security_group" "ec2_sg" {
-  vpc_id = var.vpc_id
+  name        = var.ec2_sg_name
+  description = "Security group for EC2"
+  vpc_id      = var.vpc_id
 
   ingress {
     from_port   = 22
@@ -42,6 +47,7 @@ resource "aws_security_group" "ec2_sg" {
   }
 }
 
+# RDS Security Group
 resource "aws_security_group" "rds_sg" {
   name        = var.rds_sg_name
   description = "Security group for RDS"
